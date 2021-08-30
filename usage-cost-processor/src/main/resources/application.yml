@@ -1,0 +1,18 @@
+spring:
+  cloud:
+    stream:
+      function:
+        bindings:
+          sendEvents-out-0: output
+      binders:
+        rabbitBinder:
+          type: rabbit
+          environment:
+            spring:
+              rabbitmq:
+                addresses: amqp://20.85.26.194:5672
+      bindings:
+        output:
+          destination: usage-detail
+        input:
+          destination: rabzysource
